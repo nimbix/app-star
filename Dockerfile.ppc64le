@@ -1,6 +1,7 @@
-FROM jarvice/ubuntu-power-ssh
+FROM ppc64le/ubuntu:16.04
 
 RUN apt-get update && apt-get -y install g++ make git libdb-dev bzip2 zlibc zlib1g-dev unzip wget curl python automake && apt-get clean
+RUN curl -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/nimbix/image-common/master/install-nimbix.sh | bash
 
 WORKDIR /tmp
 RUN git clone --branch 2.5.3a https://github.com/alexdobin/STAR.git && rm -rf STAR/bin/*
