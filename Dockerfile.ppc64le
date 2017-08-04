@@ -8,3 +8,8 @@ WORKDIR /tmp/STAR/source
 
 # STAR is short read, STARlong is long read; we'll do just short read for now
 RUN make STAR && mv STAR /usr/bin && make clean
+
+# metadata
+COPY NAE/screenshot.jpg /etc/NAE/screenshot.jpg
+COPY NAE/AppDef.json /etc/NAE/AppDef.json
+
