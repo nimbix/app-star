@@ -1,0 +1,10 @@
+FROM jarvice/ubuntu-power-ssh
+
+RUN apt-get update && apt-get -y install g++ make git libdb-dev bzip2 zlibc zlib1g-dev unzip wget curl python automake && apt-get clean
+
+WORKDIR /tmp
+RUN git clone --branch 2.5.3a https://github.com/alexdobin/STAR.git && rm -rf STAR/bin/*
+WORKDIR /tmp/STAR/source
+
+# STAR is short read, STARlong is long read; we'll do just short read for now
+RUN make STAR && mv STAR /usr/bin && make clean
