@@ -10,6 +10,6 @@ WORKDIR /tmp/STAR/source
 RUN make STAR && mv STAR /usr/bin && make clean
 
 # metadata
-COPY NAE/screenshot.jpg /etc/NAE/screenshot.jpg
+COPY NAE/screenshot.png /etc/NAE/screenshot.png
 COPY NAE/AppDef.json /etc/NAE/AppDef.json
 
